@@ -1,0 +1,51 @@
+* {
+  box-sizing: border-box;
+  font-family: 'Arial';
+
+}
+
+h1 {
+  text-align: center;
+  color: teal;
+}
+#alert {
+  padding: 20px;
+  background-color: blue;
+  color: white;
+  border-radius: 5px;
+  display: none;
+  position: fixed;
+  transition: 0.2s ease-in-out;
+}
+#board {
+  width: 250px;
+  height: 250px;
+  margin: auto;
+}
+
+#board > div {
+  height: 33.33333%;
+  width: 33.33333%;
+  border: 1px solid white;
+  color: white;
+  float: left;
+  text-align: center;
+  border-radius: 5px;
+  font-size: 4em;
+  background-color: teal;
+}
+#board > div:hover {
+  background-color: orange;
+  transition: 0.2s ease-in-out;
+}
+
+#reset {
+  border: none;
+  background-color: orange;
+  color: white;
+  border-radius: 5px;
+  padding: 10px;
+  text-align: center;
+  display:block;
+  margin: auto;
+}
