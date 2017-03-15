@@ -18,8 +18,13 @@ window.onload = function() {
             this.turn.winningMoves++
           }
           if (this.turn.winningMoves === 3) {
-            var score = document.getElementById('scoreboard');
-            score.innerHTML = this.turn.player == 'p1' ? ++scoreboard.p1 : ++scoreboard.p2;
+            if (this.turn.player == 'p1') {
+              var score = document.getElementById('p1');
+              score.innerHTML = 'P1: ' + ++scoreboard.p1;
+            } else {
+              var score = document.getElementById('p2');
+              score.innerHTML = 'P2: ' + ++scoreboard.p2;
+            }
             debugger;
             var alert = document.getElementById('alert');
             alert.style.display = 'inline-block';
@@ -59,10 +64,12 @@ window.onload = function() {
     }
 
     this.board.addEventListener('click', function(e){
-      e.target.innerHTML = game.turn == game.p1 ? 'X' : 'O';
-      game.turn.moves.push(+e.target.id);
-      game.checkWin();
-      game.turn = game.turn == game.p1 ? game.p2 : game.p1;
+      if (!e.target.innerHTML) {
+        e.target.innerHTML = game.turn == game.p1 ? 'X' : 'O';
+        game.turn.moves.push(+e.target.id);
+        game.checkWin();
+        game.turn = game.turn == game.p1 ? game.p2 : game.p1;
+      }
     });
   }
 
