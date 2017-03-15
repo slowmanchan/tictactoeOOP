@@ -21,22 +21,27 @@ window.onload = function() {
             if (this.turn.player == 'p1') {
               var score = document.getElementById('p1');
               score.innerHTML = 'P1: ' + ++scoreboard.p1;
+              this.alertPanel();
             } else {
               var score = document.getElementById('p2');
               score.innerHTML = 'P2: ' + ++scoreboard.p2;
+              this.alertPanel();
+              debugger;
             }
-            debugger;
-            var alert = document.getElementById('alert');
-            alert.style.display = 'inline-block';
-            alert.innerHTML = this.turn.player + ' wins';
-            setTimeout(function() {
-              alert.style.display = 'none';
-            }, 2000)
           }
         }
       }
     }
+    this.alertPanel = function() {
+      var alert = document.getElementById('alert');
+      alert.style.display = 'inline-block';
+      alert.innerHTML = this.turn.player + ' WINS!!';
+      setTimeout(function() {
+        alert.style.display = 'none';
+      }, 2000)
+    }
   }
+
   function ScoreBoard() {
     this.p1 = 0;
     this.p2 = 0;
@@ -56,7 +61,7 @@ window.onload = function() {
     this.board = document.createElement('div');
     this.board.id = 'board';
     document.body.append(this.board);
-
+    
     for (var i = 1; i < 10; i++) {
       var cell = document.createElement('div');
       cell.id = i;
